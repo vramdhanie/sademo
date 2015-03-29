@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="h1">Plots <small>Criteria Values</small>
+    </div>
+    <div class="text-muted"> 4 criteria and 9 plots</div>
+
+
+    <div class="row">
+        <div class="col-md-2">Plots/Critera</div>
+        <div class="col-md-2">Slope (c1)</div>
+        <div class="col-md-2">Distance (c2)</div>
+        <div class="col-md-2">Water (c3)</div>
+        <div class="col-md-2">Forest (c4)</div>
+        <div class="col-md-2">Assigments</div>
+    </div>
+    <div class="row" ng-repeat="r in plots track by $index">
+        <div class="col-md-2">P{{$index + 1}}</div>
+        <div class="col-md-2" ng-repeat="c in r track by $index">
+            <input type="text" ng-model="plots[$parent.$index][$index]">
+        </div>
+        <div class="col-md-2">
+            {{assignments[$index]}}
+
+            <div class="btn-group" dropdown>
+                <button type="button" class="btn btn-default btn-sm">{{landUses[assignments[$index]].name}}</button>
+                <button type="button" class="btn btn-sm btn-default dropdown-toggle" dropdown-toggle>
+                    <span class="caret"></span>
+                    <span class="sr-only">Choose a Land use</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li ng-repeat="lu in landUses"><a ng-click="assignments[$parent.$index] = lu.id">{{lu.name}}</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="h1">Land Use <small>Criteria Values</small>
+    </div>
+    <div class="text-muted">4 critera and 3 land use options</div>
+
+    <div class="row">
+        <div class="col-md-2">Land Use/Criteria</div>
+        <div class="col-md-2">Slope (c1)</div>
+        <div class="col-md-2">Distance (c2)</div>
+        <div class="col-md-2">Water (c3)</div>
+        <div class="col-md-2">Forest (c4)</div>
+    </div>
+    <div class="row" ng-repeat="r in landUse track by $index">
+        <div class="col-md-2">L{{$index + 1}} ({{landUses[$index].name}})</div>
+        <div class="col-md-2" ng-repeat="c in r track by $index">
+            <input type="text" ng-model="landUse[$parent.$index][$index]">
+        </div>
+    </div>
+
+
+
+
+</div>
