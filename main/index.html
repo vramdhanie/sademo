@@ -1,4 +1,11 @@
 <div class="container">
+   <div class="panel panel-default">
+      <div class="panel-body">
+       <span class="h2 pull-left">{{arrangementCost || 'Click Calulate Cost to see the cost of the current configuration'}}</span>
+      
+       <button class="btn btn-sm btn-default pull-right" ng-click="arrangementCost = cost()">Calculate Cost</button>
+       </div>
+   </div>
     <div class="h1">Plots <small>Criteria Values</small>
     </div>
     <div class="text-muted"> 4 criteria and 9 plots</div>
